@@ -4,5 +4,5 @@ It is a python implementation of the paper: [**Hyperparameter selection of one-c
 ## _Train and test_
 - You can simply run code by
 ```
-$ python main.py
+$ python main.py --data fourclass
 ```
