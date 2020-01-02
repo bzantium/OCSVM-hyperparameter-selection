@@ -34,6 +34,8 @@ class SelfAdaptiveShifting:
         self.edge_indice = edge_indice
 
     def generate_pseudo_outliers(self):
+        if self.edge_indice is None:
+            raise Exception("You should call edge_pattern_detection function first.")
         edge_data = self.data[self.edge_indice]
         l_ns = np.mean(self.distances[self.edge_indice][1:])
         edge_normal_vectors = self.normal_vectors[self.edge_indice]
@@ -41,6 +43,8 @@ class SelfAdaptiveShifting:
         return self.pseudo_outliers
 
     def generate_pseudo_targets(self):
+        if self.edge_indice is None:
+            raise Exception("You should call edge_pattern_detection function first.")
         shift_directions = -self.normal_vectors
         unit_shift_directions = shift_directions / (np.linalg.norm(shift_directions, axis=1, keepdims=True) + 1e-8)
         pseudo_targets = []
@@ -65,6 +69,8 @@ class SelfAdaptiveShifting:
         return min_product
 
     def visualize(self):
+        if self.pseudo_targets is None or self.pseudo_outliers is None:
+            raise Exception("You should generate pseudo targets and outliers first.")
         plt.figure()
         if np.size(self.data, 1) > 2:
             all_data = np.concatenate((self.data, self.pseudo_outliers, self.pseudo_targets), axis=0)
