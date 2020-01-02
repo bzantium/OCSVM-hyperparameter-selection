@@ -18,6 +18,7 @@ def parse_arguments():
     parser.add_argument('--kernel', default='rbf')
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--threshold', type=float, default=0.01)
+    parser.add_argument('--visualize', default=False, action='store_true')
     return parser.parse_args()
 
 
@@ -82,7 +83,8 @@ def main():
     acc = accuracy_score(y_true, y_pred)
     print("\n[%s] (default setting) \nf1-score: %.4f, mcc: %.4f, acc: %.4f" % (args.data, f1, mcc, acc))
 
-    self_adaptive_shifting.visualize()
+    if args.visualize:
+        self_adaptive_shifting.visualize()
 
 
 if __name__ == "__main__":
