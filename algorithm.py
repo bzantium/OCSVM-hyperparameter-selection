@@ -71,6 +71,7 @@ class SelfAdaptiveShifting:
     def visualize(self):
         if self.pseudo_targets is None or self.pseudo_outliers is None:
             raise Exception("You should generate pseudo targets and outliers first.")
+        print("\nOn processing data for visualization...")
         plt.figure()
         if np.size(self.data, 1) > 2:
             all_data = np.concatenate((self.data, self.pseudo_outliers, self.pseudo_targets), axis=0)

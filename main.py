@@ -70,8 +70,7 @@ def main():
     f1 = f1_score(y_true, y_pred, average="binary")
     mcc = matthews_corrcoef(y_true, y_pred)
     acc = accuracy_score(y_true, y_pred)
-    print("\n[%s] (gamma: %.4f, nu: %.4f, err: %.4f) \nf1-score: %.4f, mcc: %.4f, acc: %.4f"
-          % (args.data, best_gamma, best_nu, best_err, f1, mcc, acc))
+    print("\n[%s] (gamma: %.4f, nu: %.4f, err: %.4f) \nf1-score: %.4f, mcc: %.4f, acc: %.4f" % (args.data, best_gamma, best_nu, best_err, f1, mcc, acc))
 
     model = OneClassSVM(kernel=args.kernel).fit(target_X_train)
     target_pred = model.predict(target_X_test)
@@ -81,8 +80,7 @@ def main():
     f1 = f1_score(y_true, y_pred, average="binary")
     mcc = matthews_corrcoef(y_true, y_pred)
     acc = accuracy_score(y_true, y_pred)
-    print("\n[%s] (default setting) \nf1-score: %.4f, mcc: %.4f, acc: %.4f"
-          % (args.data, f1, mcc, acc))
+    print("\n[%s] (default setting) \nf1-score: %.4f, mcc: %.4f, acc: %.4f" % (args.data, f1, mcc, acc))
 
     self_adaptive_shifting.visualize()
 
