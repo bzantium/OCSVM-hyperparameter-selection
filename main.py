@@ -1,7 +1,7 @@
 from sklearn.model_selection import train_test_split
 from sklearn.svm import OneClassSVM
 from sklearn.metrics import f1_score, matthews_corrcoef, accuracy_score
-from sklearn.preprocessing.data import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler
 from utils import load_data
 from algorithm import SelfAdaptiveShifting
 import numpy as np
